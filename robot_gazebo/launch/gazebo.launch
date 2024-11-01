@@ -10,9 +10,9 @@
     <arg name="debug" default="false"/>
     
     <!-- Args : Robot and controller -->
-    <arg name="rvizconfig" default="$(find diffbot_control)/rviz/diffbot.rviz" />
-    <arg name="x_pos" default="+3.0"/>
-    <arg name="y_pos" default="-3.0"/>
+    <!-- <arg name="rvizconfig" default="$(find diffbot_control)/rviz/diffbot.rviz" /> -->
+    <arg name="x_pos" default="-6.0"/>
+    <arg name="y_pos" default="+6.0"/>
     <arg name="z_pos" default="0.1"/>
 
     <!-- Launch World -->

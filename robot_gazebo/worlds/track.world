@@ -261,45 +261,5 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-10.4234 3.14346 0 0 -0 0</pose>
     </model>
-
-    <!-- Traffic Stand -->
-    <model name='taffic_stand'>
-      <static>1</static>
-      <link name='traffic_stand_link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://traffic_stand/meshes/traffic_stand.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://traffic_stand/meshes/traffic_stand.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <static>1</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose>0.017627 -0.018981 0 0 -0 0</pose>
-    </model>
   </world>
 </sdf>

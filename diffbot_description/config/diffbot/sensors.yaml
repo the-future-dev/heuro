@@ -12,3 +12,12 @@ laser:
     max: 3.1415
   color: Gazebo/Grey
   enable_gpu: false
+
+camera:
+  mass: 0.1             # Mass in Kg
+  radius: 0.03          # Radius of the visual and collision geometry
+  length: 0.1           # Length of the visual and collision geometry
+  mesh: 'hokuyo.dae' 
+  scale: 1 1 1
+  meshes:
+    scale: 1 1 1      # Scale for the mesh

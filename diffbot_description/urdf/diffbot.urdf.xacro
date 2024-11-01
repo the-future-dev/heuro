@@ -61,12 +61,21 @@
                       base_props="${base_props}" > 
   </xacro:motor>
 
-  <!-- Sensors -->
-  <xacro:laser prefix="rplidar" parent_link="base_link"
+  <!-- Lidar Sensor -->
+  <!-- <xacro:laser prefix="rplidar" parent_link="base_link"
                    sensor_prop="${sensor_prop}"
                    enable_gpu="${sensor_prop['laser']['enable_gpu']}">
-  </xacro:laser>
+  </xacro:laser> -->
 
+  <!-- Camera Sensor -->
+  <xacro:camera_sensor 
+      parent_link="base_link" 
+      sensor_prop="${sensor_prop}"
+      visualize="true"
+      mesh="package://${package_name}/meshes/sensors/hokuyo.dae">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:camera_sensor>
+  
   <!-- Gazebo -->
   <xacro:gazebo_ros_control robotNamespace="/diffbot">
   </xacro:gazebo_ros_control>
