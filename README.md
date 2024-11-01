@@ -3,7 +3,7 @@ The purpose of this repository is to use a VLM as controller for diff robot in o
 
 # Roadmap:
 - [x] Setup of Robot and controller
-- [x] Setup of World
+- [ ] Setup of World
 - [ ] Implementation of basic controller infrastructure
 - [ ] Dataset creation with inputs and actions
 
