@@ -319,7 +319,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://diffbot_description/meshes/sensors/package://diffbot_description/meshes/sensors/hokuyo.dae" scale="1 1 1"/>
+        <mesh filename="package://diffbot_description/meshes/sensors/hokuyo.dae" scale="1 1 1"/>
       </geometry>
       <material name="dark_grey"/>
     </visual>
@@ -340,7 +340,7 @@
   </gazebo>
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0"/>
-    <origin rpy="0 0 0" xyz="0 0 0.03"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_link"/>
   </joint>

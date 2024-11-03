@@ -2,7 +2,7 @@
     <arg name="model" default="diffbot" doc="model type [diffbot, remo]"/>
 
     <!-- Args: World -->
-    <arg name="world_name" default="$(find robot_gazebo)/worlds/track.world"/>
+    <arg name="world_name" default="$(find robot_gazebo)/worlds/singlestreet.world"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
@@ -11,9 +11,9 @@
     
     <!-- Args : Robot and controller -->
     <!-- <arg name="rvizconfig" default="$(find diffbot_control)/rviz/diffbot.rviz" /> -->
-    <arg name="x_pos" default="-6.0"/>
-    <arg name="y_pos" default="+6.0"/>
-    <arg name="z_pos" default="0.1"/>
+    <arg name="x_pos" default="0.0"/>
+    <arg name="y_pos" default="0.0"/>
+    <arg name="z_pos" default="0.2"/>
 
     <!-- Launch World -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -23,8 +23,9 @@
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="headless" value="$(arg headless)"/>
+        <arg name="verbose" value="true" />
     </include>
-
+    
     <!-- Spawn Robot -->
     <param name="diffbot/robot_description"
         command="$(find xacro)/xacro --inorder '$(find diffbot_description)/urdf/diffbot.urdf'" />
@@ -35,5 +36,5 @@
     <include file="$(find diffbot_control)/launch/diffbot_control.launch">
         <arg name="model" value="$(arg model)" />
     </include>
-    
+
 </launch>
