@@ -96,7 +96,7 @@
     </model>
 
     <!-- Self Driving Track -->
-    <model name='self_driving_track'>
+    <!-- <model name='self_driving_track'>
       <link name='link_0'>
         <pose>-0.03442 0.020057 0 0 -0 0</pose>
         <visual name='visual'>
@@ -260,6 +260,6 @@
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-10.4234 3.14346 0 0 -0 0</pose>
-    </model>
+    </model> -->
   </world>
 </sdf>
