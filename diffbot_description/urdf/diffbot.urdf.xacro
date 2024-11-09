@@ -3,6 +3,7 @@
 
   <xacro:property name="package_name" value="diffbot_description"/>
   <xacro:property name="robot_name" value="diffbot"/>
+  <xacro:property name="scale_factor" value="5.0"/>
 
   <xacro:include filename="$(find ${package_name})/urdf/include/common_macros.urdf.xacro" />
   <xacro:include filename="$(find ${package_name})/urdf/include/diffbot_caster_macro.urdf.xacro" />
@@ -29,36 +30,42 @@
   <xacro:footprint wheel_props="${front_wheel_props}" />
 
   <!-- Base link -->
-  <xacro:base base_prop="${base_props}" mesh="${base_props['base']['mesh']}" >
+  <xacro:base base_prop="${base_props}" mesh="${base_props['base']['mesh']}"
+    scale="${scale_factor} ${scale_factor} ${scale_factor}">
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:base>
 
   <!-- Back Caster Wheel -->
   <xacro:caster_wheel prefix="rear" reflect="-1"
-                      wheel_props="${caster_wheel_props}">
+                      wheel_props="${caster_wheel_props}"
+                      scale="${scale_factor}" >
   </xacro:caster_wheel>
 
   <!-- Front Wheels -->
   <xacro:wheel prefix="front_right" reflect="-1" 
                       wheel_props="${front_wheel_props}"
-                      base_props="${base_props}" > 
+                      base_props="${base_props}"
+                      scale="${scale_factor}" > 
   </xacro:wheel>
 
   <xacro:wheel prefix="front_left" reflect="1" 
                       wheel_props="${front_wheel_props}"
-                      base_props="${base_props}" > 
+                      base_props="${base_props}"
+                      scale="${scale_factor}" > 
   </xacro:wheel>
 
 
   <!-- Motors -->
   <xacro:motor prefix="right" reflect="-1" 
                       motor_props="${motor_props}"
-                      base_props="${base_props}" > 
+                      base_props="${base_props}"
+                      scale="${scale_factor}" > 
   </xacro:motor>
 
   <xacro:motor prefix="left" reflect="1" 
                       motor_props="${motor_props}"
-                      base_props="${base_props}" > 
+                      base_props="${base_props}"
+                      scale="${scale_factor}" > 
   </xacro:motor>
 
   <!-- Lidar Sensor -->

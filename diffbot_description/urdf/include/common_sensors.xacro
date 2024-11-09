@@ -139,6 +139,7 @@
 
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
+    <origin xyz="${sensor_prop['camera']['dx']} ${sensor_prop['camera']['dy']} ${sensor_prop['camera']['dz']}" rpy="0 0 0"/>
     <xacro:insert_block name="joint_origin" />
     <parent link="${parent_link}"/>
     <child link="camera_link"/>

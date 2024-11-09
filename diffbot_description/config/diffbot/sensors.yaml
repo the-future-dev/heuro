@@ -18,6 +18,9 @@ camera:
   radius: 0.03          # Radius of the visual and collision geometry
   length: 0.1           # Length of the visual and collision geometry
   mesh: 'hokuyo.dae' 
+  dx: 0.40
+  dy: 0.0
+  dz: 0.04
   scale: 1 1 1
   meshes:
     scale: 1 1 1      # Scale for the mesh
