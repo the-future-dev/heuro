@@ -2,7 +2,7 @@
     <arg name="model" default="diffbot" doc="model type [diffbot, remo]"/>
 
     <!-- Args: World -->
-    <arg name="world_name" default="$(find robot_gazebo)/worlds/singlestreet.world"/>
+    <arg name="world_name" default="city_osm_roundabout_combined.world"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
@@ -11,13 +11,13 @@
     
     <!-- Args : Robot and controller -->
     <!-- <arg name="rvizconfig" default="$(find diffbot_control)/rviz/diffbot.rviz" /> -->
-    <arg name="x_pos" default="0.0"/>
-    <arg name="y_pos" default="0.0"/>
-    <arg name="z_pos" default="0.2"/>
+    <arg name="x_pos" default="-45.0"/>
+    <arg name="y_pos" default="-76.0"/>
+    <arg name="z_pos" default="0.0"/>
 
     <!-- Launch World -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(arg world_name)"/>
+        <arg name="world_name" value="$(find robot_gazebo)/worlds/$(arg world_name)"/>
         <arg name="debug" value="$(arg debug)" />
         <arg name="gui" value="$(arg gui)" />
         <arg name="paused" value="$(arg paused)"/>
@@ -37,4 +37,7 @@
         <arg name="model" value="$(arg model)" />
     </include>
 
+    <!-- Path Planning -->
+    <!-- <include file="$(find path_planning)/launch/path.launch"/> -->
+    
 </launch>

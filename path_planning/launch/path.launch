@@ -1,0 +1,34 @@
+<launch>
+  <!-- Camera -->
+  <!-- <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="2.0"/>
+  <arg name="roll" default="0.0"/> 
+  <arg name="pitch" default="1.57"/>
+  <arg name="yaw" default="0.0"/>
+
+  <param name="path_planning/camera_description" textfile="$(find path_planning)/urdf/view_from_the_top.urdf"/>
+  <node name="camera_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model view_from_the_top -param path_planning/camera_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/> -->
+
+  <!-- Path Planner Node -->
+  <node name="path_planner" pkg="path_planning" type="path_planner.py" output="screen">
+    <remap from="/path" to="/path_planning/path" />
+    <remap from="/markers" to="/path_planning/markers" />
+  </node>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform" 
+        args="0 0 0 0 0 0 map base_link" />
+
+   <node pkg="tf2_ros" type="static_transform_publisher" name="path_planner_transform"
+        args="0 0 0 0 0 0 map path_planner" />
+
+  <!-- Launch GPS Simulator -->
+  <!-- <node name="gps_simulator" pkg="path_planning" type="gps_simulator.py" output="screen"/> -->
+
+  <!-- Launch Map Handler -->
+  <!-- <node name="map_handler" pkg="path_planning" type="map_handler.py" output="screen"/> -->
+
+  <!-- Rviz Display -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find path_planning)/launch/path_planner.rviz" output="screen"/> -->
+</launch>

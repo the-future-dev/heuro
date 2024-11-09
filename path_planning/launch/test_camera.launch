@@ -1,0 +1,26 @@
+<launch>
+    <!-- Launch your Gazebo world -->
+    <arg name="world_name" default="$(find robot_gazebo)/worlds/singlestreet.world"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_name)"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- Camera Parameters -->
+    <arg name="x_pos" default="0.0"/>  <!-- Camera X position -->
+    <arg name="y_pos" default="0.0"/>  <!-- Camera Y position -->
+    <arg name="z_pos" default="2.0"/> <!-- Camera Z position (height) -->
+    <arg name="roll" default="0.0"/>   <!-- Roll angle in radians -->
+    <arg name="pitch" default="1.57"/> <!-- Pitch angle in radians (looking downward) -->
+    <arg name="yaw" default="0.0"/>    <!-- Yaw angle in radians -->
+
+    <!-- Load the camera URDF as a parameter -->
+    <param name="path_planning/camera_description" textfile="$(find path_planning)/urdf/view_from_the_top.urdf"/>
+
+    <!-- Spawn the camera model with position and orientation -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model view_from_the_top -param path_planning/camera_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+    
+</launch>
